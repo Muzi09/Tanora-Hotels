@@ -17,7 +17,7 @@ export default function Header() {
         </span>
       </div>
       <div className="absolute left-1/2 -translate-x-1/2">
-        <h1 className="text-headline-md font-headline-md tracking-widest text-primary dark:text-primary-fixed-dim">
+        <h1 className="text-headline-md font-headline-md tracking-widest ">
           TANORA
         </h1>
       </div>

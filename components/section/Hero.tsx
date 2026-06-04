@@ -45,12 +45,6 @@ export default function Hero() {
           </button>
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center animate-bounce">
-        <span className="text-[10px] tracking-[0.3em] uppercase mb-2">
-          Scroll
-        </span>
-        <MaterialIcon name="expand_more" />
-      </div>
     </section>
   );
 }

@@ -3,32 +3,26 @@
 import { useEffect } from "react";
 
 /**
- * Wires the west/east buttons in the suites section to scroll the
- * horizontal `.snap-x` rail. Mirrors the original `script` block.
+ * Keeps the suites rail moving automatically in an endless horizontal loop.
  */
 export function useSuitesSlider() {
   useEffect(() => {
-    const slider = document.querySelector(".snap-x") as HTMLElement | null;
-    const nextBtn = document.querySelector(
-      'button[data-icon="east"]'
-    ) as HTMLButtonElement | null;
-    const prevBtn = document.querySelector(
-      'button[data-icon="west"]'
-    ) as HTMLButtonElement | null;
+    const slider = document.querySelector(".suite-rail") as HTMLElement | null;
 
-    if (!slider || !nextBtn || !prevBtn) return;
+    if (!slider) return;
 
-    const onNext = () =>
-      slider.scrollBy({ left: 350, behavior: "smooth" });
-    const onPrev = () =>
-      slider.scrollBy({ left: -350, behavior: "smooth" });
+    const step = 380;
+    const intervalId = window.setInterval(() => {
+      const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
 
-    nextBtn.addEventListener("click", onNext);
-    prevBtn.addEventListener("click", onPrev);
+      if (slider.scrollLeft >= maxScrollLeft - 1) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+        return;
+      }
 
-    return () => {
-      nextBtn.removeEventListener("click", onNext);
-      prevBtn.removeEventListener("click", onPrev);
-    };
+      slider.scrollBy({ left: step, behavior: "smooth" });
+    }, 3200);
+
+    return () => window.clearInterval(intervalId);
   }, []);
 }

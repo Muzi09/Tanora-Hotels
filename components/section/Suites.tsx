@@ -1,6 +1,5 @@
 "use client";
 
-import MaterialIcon from "@/components/ui/MaterialIcon";
 import SuiteCard from "@/components/section/SuiteCard";
 import { useSuitesSlider } from "@/lib/useSuitesSlider";
 
@@ -61,16 +60,8 @@ export default function Suites() {
               Curated Suites for Discerning Travelers
             </h3>
           </div>
-          <div className="hidden md:flex gap-4">
-            <button className="p-4 border border-outline/30 hover:border-secondary transition-colors">
-              <MaterialIcon name="west" />
-            </button>
-            <button className="p-4 border border-outline/30 hover:border-secondary transition-colors">
-              <MaterialIcon name="east" />
-            </button>
-          </div>
         </div>
-        <div className="flex gap-8 overflow-x-auto pb-12 snap-x no-scrollbar">
+        <div className="suite-rail flex gap-8 overflow-x-auto pb-12 snap-x no-scrollbar">
           {SUITES.map((suite, idx) => (
             <SuiteCard
               key={suite.title}
