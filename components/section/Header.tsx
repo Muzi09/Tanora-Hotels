@@ -1,46 +1,141 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import MaterialIcon from "@/components/ui/MaterialIcon";
+import { usePathname } from "next/navigation";
 
-/**
- * Top navigation shell — sticky, glass-blurred, with the centered TANORA
- * wordmark, left menu, and right calendar / nav links.
- */
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Rooms & Suites", path: "/rooms" },
+    { name: "Dining", path: "/dining" },
+    { name: "Rooftop", path: "/rooftop" },
+    { name: "Meetings", path: "/meetings" },
+    { name: "Banquet", path: "/banquet" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Offers", path: "/offers" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <header className="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 docked full-width top-0 sticky z-[60] border-b border-secondary/20 shadow-sm">
-      <div className="flex items-center gap-4">
-        <MaterialIcon
-          name="menu"
-          className="text-primary cursor-pointer"
-        />
-        <span className="hidden md:block text-label-sm font-label-sm text-on-surface-variant tracking-widest uppercase">
-          Navigation
-        </span>
-      </div>
-      <div className="absolute left-1/2 -translate-x-1/2">
-        <h1 className="text-headline-md font-headline-md tracking-widest ">
-          TANORA
-        </h1>
-      </div>
-      <div className="flex items-center gap-6">
-        <nav className="hidden md:flex gap-8">
-          <a
-            className="text-label-sm font-label-sm text-primary font-bold hover:text-secondary-fixed-dim transition-colors duration-300"
-            href="#"
+    <>
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? "glass-nav py-3 border-b border-surface-variant shadow-sm"
+            : "bg-transparent py-5"
+        }`}
+      >
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex justify-between items-center">
+          <button
+            className="md:hidden text-primary"
+            onClick={() => setMobileMenuOpen(true)}
           >
-            ESTATE
-          </a>
-          <a
-            className="text-label-sm font-label-sm text-on-surface-variant hover:text-secondary-fixed-dim transition-colors duration-300"
-            href="#"
-          >
-            EXPERIENCES
-          </a>
-        </nav>
-        <MaterialIcon
-          name="calendar_month"
-          className="text-primary cursor-pointer"
-        />
-      </div>
-    </header>
+            <MaterialIcon name="menu" className="text-3xl" />
+          </button>
+          
+          <Link href="/">
+            <h1 className="text-2xl md:text-3xl font-display-lg text-primary tracking-widest font-bold">
+              TANORA
+            </h1>
+          </Link>
+
+          <nav className="hidden xl:flex items-center gap-6">
+            {navLinks.slice(0, 5).map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-secondary ${
+                  pathname === link.path ? "text-secondary" : "text-on-surface"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="group relative">
+              <span className="text-sm font-medium tracking-wide uppercase cursor-pointer text-on-surface hover:text-secondary flex items-center">
+                More <MaterialIcon name="expand_more" className="text-lg" />
+              </span>
+              <div className="absolute top-full left-0 mt-2 bg-surface border border-surface-variant shadow-lg rounded-xl flex flex-col min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                {navLinks.slice(5).map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.path}
+                    className="px-6 py-3 hover:bg-surface-variant hover:text-primary transition-colors text-sm uppercase tracking-wide border-b border-surface-variant last:border-0"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <Link
+              href="/rooms"
+              className="hidden md:flex items-center justify-center bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-secondary transition-colors duration-300"
+            >
+              Book Now
+            </Link>
+            <a href="tel:8889866686" className="text-primary hover:text-secondary hidden sm:flex">
+              <MaterialIcon name="phone" className="text-2xl" />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-[100] bg-surface flex flex-col">
+          <div className="flex justify-between items-center p-4 border-b border-surface-variant">
+            <h1 className="text-2xl font-display-lg text-primary tracking-widest font-bold">
+              TANORA
+            </h1>
+            <button
+              className="text-primary p-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <MaterialIcon name="close" className="text-3xl" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-xl font-display-lg tracking-wide ${
+                  pathname === link.path ? "text-secondary" : "text-on-surface"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="mt-8">
+              <Link
+                href="/rooms"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center bg-primary text-white px-6 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-secondary transition-colors"
+              >
+                Book Your Stay
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
