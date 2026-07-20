@@ -21,28 +21,110 @@ export default function Hero() {
           style={{ backgroundImage: `url('${HERO_BG}')` }}
         />
       </div>
-      <div className="relative z-10 text-center px-4 max-w-4xl">
+      <div className="relative z-10 w-full max-w-[1100px] px-4 mx-auto mt-20">
         <div className="mb-12 animate-pulse transition-opacity duration-1000">
           <img
             alt="TANORA Logo"
-            className="mx-auto w-48 md:w-64 drop-shadow-2xl"
+            className="mx-auto w-48 md:w-56 drop-shadow-2xl"
             src={LOGO}
           />
         </div>
-        <h2 className="text-white font-display-lg text-[40px] md:text-display-lg leading-tight mb-8 drop-shadow-lg">
-          A Heritage of Quiet Confidence
-        </h2>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <button className="bg-primary text-secondary-fixed px-10 py-4 font-label-sm uppercase tracking-widest hover:bg-primary-container transition-all duration-300 shadow-xl group">
-            Explore Suites
-            <MaterialIcon
-              name="arrow_forward"
-              className="align-middle ml-2 text-sm group-hover:translate-x-1 transition-transform"
-            />
-          </button>
-          <button className="border border-secondary-fixed text-secondary-fixed px-10 py-4 font-label-sm uppercase tracking-widest hover:bg-secondary-fixed hover:text-primary transition-all duration-300 backdrop-blur-sm">
-            Inquire for Events
-          </button>
+
+        {/* Booking Form */}
+        <div className="w-full bg-black/40 backdrop-blur-md p-6 border border-white/10 shadow-2xl">
+          {/* Top Row: Toggle */}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-white text-sm font-medium tracking-wide">Overnight</span>
+            <div className="w-10 h-5 bg-white rounded-full flex items-center p-0.5 cursor-pointer shadow-inner">
+              <div className="w-4 h-4 bg-[#D4B776] rounded-full shadow-sm"></div>
+            </div>
+            <span className="text-white text-sm font-medium tracking-wide">Day Use</span>
+          </div>
+
+          {/* First Grid Row: Place & Hotel */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="flex flex-col w-full text-left">
+              <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Place</span>
+              <div className="bg-white text-gray-800 h-12 px-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <MaterialIcon name="place" className="text-gray-400 text-[20px]" />
+                  <span className="text-sm font-medium">Indore</span>
+                </div>
+                <MaterialIcon name="keyboard_arrow_down" className="text-gray-400 text-[20px] flex-shrink-0" />
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full text-left">
+              <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Hotel</span>
+              <div className="bg-white text-gray-800 h-12 px-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <MaterialIcon name="business" className="text-gray-400 text-[20px]" />
+                  <span className="text-sm font-medium truncate">Jardin Hotels, Nipania, Indore</span>
+                </div>
+                <MaterialIcon name="keyboard_arrow_down" className="text-gray-400 text-[20px] flex-shrink-0" />
+              </div>
+            </div>
+          </div>
+
+          {/* Second Grid Row */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+            <div className="flex flex-col w-full text-left">
+              <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Check In</span>
+              <div className="bg-white text-gray-800 h-12 px-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <MaterialIcon name="calendar_today" className="text-gray-400 text-[18px]" />
+                  <span className="text-sm font-medium">21 Jul '26, Tue</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full text-left">
+              <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Check Out</span>
+              <div className="bg-white text-gray-800 h-12 px-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <MaterialIcon name="calendar_today" className="text-gray-400 text-[18px]" />
+                  <span className="text-sm font-medium">22 Jul '26, Wed</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full text-left">
+              <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Rooms & Guests</span>
+              <div className="bg-white text-gray-800 h-12 px-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <MaterialIcon name="person" className="text-gray-400 text-[18px]" />
+                  <span className="text-sm font-medium">1 Room, 1 Guest</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full text-left">
+              <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Promo Code</span>
+              <div className="bg-white text-gray-800 h-12 px-3 flex items-center">
+                <MaterialIcon name="local_offer" className="text-gray-400 text-[18px] mr-2" />
+                <input type="text" placeholder="Promo Code" className="w-full h-full outline-none text-sm font-medium bg-transparent placeholder:text-gray-500" />
+              </div>
+            </div>
+
+            <div className="flex flex-col w-full text-center">
+              <span className="text-white text-[11px] tracking-wider mb-1.5 font-medium whitespace-nowrap">From 2,634 INR/Night</span>
+              <button className="bg-[#D4B776] hover:bg-[#c4a660] text-white h-12 font-medium tracking-widest uppercase transition-colors shadow-lg">
+                Book Now
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Row: Links */}
+          <div className="flex flex-wrap items-center justify-between mt-6 text-white text-[11px] tracking-wider uppercase font-medium">
+            <div className="flex items-center gap-1.5 cursor-pointer hover:text-[#D4B776] transition-colors">
+              <MaterialIcon name="remove_circle" className="text-[16px]" />
+              <span>Show Less</span>
+            </div>
+            <div className="flex gap-8">
+              <a href="#" className="hover:text-[#D4B776] transition-colors">Why Book Direct?</a>
+              <a href="#" className="hover:text-[#D4B776] transition-colors">Manage Booking</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
