@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/section/Header";
 import Footer from "@/components/section/Footer";
-import BottomNav from "@/components/section/BottomNav";
 import RevealObserver from "@/components/RevealObserver";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AmenitiesGrid from "@/components/ui/AmenitiesGrid";
 import MaterialIcon from "@/components/ui/MaterialIcon";
+import BookingForm from "@/components/section/BookingForm";
 
 export default function Home() {
   return (
@@ -16,8 +16,7 @@ export default function Home() {
       <RevealObserver />
       <Header />
       <main className="pt-16">
-        {/* HERO BANNER */}
-        <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center px-4 overflow-hidden">
+        <section className="relative min-h-[100vh] lg:h-[90vh] lg:min-h-[600px] flex flex-col justify-end pb-12 pt-16 lg:pt-0 lg:pb-16 px-4 overflow-hidden">
           <Image
             src="/images/hero_hotel_1784569172973.png"
             alt="Tanora Hotel Exterior"
@@ -25,33 +24,17 @@ export default function Home() {
             className="object-cover parallax-bg scale-105"
             priority
           />
-          <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center reveal">
-            <h2 className="text-sm md:text-base font-bold text-secondary uppercase tracking-[0.3em] mb-4">
-              Premium 3-Star Hotel in Indore
+          <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center reveal mb-8">
+            <h2 className="text-sm md:text-base font-bold text-secondary-fixed uppercase tracking-[0.3em] mb-4">
+              Premium 3 star hotel in Indore
             </h2>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display-lg text-white mb-6 leading-tight drop-shadow-xl">
-              Luxury. Comfort.<br />Exceptional Hospitality.
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display-lg text-white leading-tight drop-shadow-xl">
+              Luxury Comfort Exceptional Hospitililty
             </h1>
-            <p className="text-white/90 text-lg md:text-xl font-body-md max-w-3xl mb-10 leading-relaxed font-light">
-              Experience warm hospitality, elegant accommodations, world-class
-              dining, rooftop experiences, premium meeting spaces, and
-              unforgettable celebrations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Link
-                href="/rooms"
-                className="px-8 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg hover:shadow-xl"
-              >
-                Book Your Stay
-              </Link>
-              <Link
-                href="/rooms"
-                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 font-bold tracking-widest uppercase rounded-full hover:bg-white hover:text-primary transition-colors duration-300 shadow-lg"
-              >
-                Explore Rooms
-              </Link>
-            </div>
+          </div>
+          <div className="relative z-10 w-full reveal max-w-[1200px] mx-auto">
+            <BookingForm />
           </div>
         </section>
 
@@ -91,7 +74,7 @@ export default function Home() {
                 { title: "Conference Rooms", icon: "video_camera_front" },
                 { title: "Banquet Hall", icon: "celebration" },
                 { title: "Free WiFi", icon: "wifi" },
-                { title: "Valet Parking", icon: "valet" },
+                { title: "Valet Parking", icon: "directions_car" },
                 { title: "24/7 Service", icon: "support_agent" },
                 { title: "Hospitality from the Heart", icon: "favorite" },
               ].map((feature, idx) => (
@@ -270,7 +253,6 @@ export default function Home() {
 
       </main>
       <Footer />
-      <BottomNav />
     </>
   );
 }

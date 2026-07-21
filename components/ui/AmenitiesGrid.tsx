@@ -9,7 +9,7 @@ const allAmenities: Amenity[] = [
   { name: "Restaurant", icon: "restaurant" },
   { name: "Bar", icon: "local_bar" },
   { name: "Free WiFi", icon: "wifi" },
-  { name: "Valet Parking", icon: "valet" },
+  { name: "Valet Parking", icon: "directions_car" },
   { name: "Parking Space", icon: "local_parking" },
   { name: "Concierge", icon: "concierge" },
   { name: "Laundry", icon: "local_laundry_service" },
