@@ -55,9 +55,15 @@ export default function ContactPage() {
                       Heart of Indore<br />
                       Madhya Pradesh, India
                     </p>
-                    <Link href="https://maps.google.com" target="_blank" className="text-secondary hover:text-primary font-medium text-sm mt-2 inline-block transition-colors">
-                      Get Directions
-                    </Link>
+                    <a
+                      href="https://maps.app.goo.gl/yQdyQVsYHpe96Njs9?g_st=iw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-secondary hover:text-primary font-medium text-sm mt-2 inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>Get Directions</span>
+                      <MaterialIcon name="open_in_new" className="text-xs" />
+                    </a>
                   </div>
                 </div>
 
@@ -86,11 +92,30 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* MAP PLACEHOLDER */}
-              <div className="w-full h-64 bg-surface-variant rounded-2xl overflow-hidden relative border border-surface-variant/50">
-                <div className="absolute inset-0 flex items-center justify-center flex-col text-on-surface-variant/50">
-                  <MaterialIcon name="map" className="text-5xl mb-2" />
-                  <span>Google Maps Integration</span>
+              {/* GOOGLE MAP EMBED */}
+              <div className="w-full h-80 md:h-96 bg-surface-variant rounded-2xl overflow-hidden relative border border-surface-variant/50 shadow-lg group">
+                <iframe
+                  src="https://maps.google.com/maps?q=22.7645434,75.8993094&z=16&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Tanora Hotel Location Map"
+                  className="w-full h-full rounded-2xl"
+                />
+                <div className="absolute top-4 right-4 z-10">
+                  <a
+                    href="https://maps.app.goo.gl/yQdyQVsYHpe96Njs9?g_st=iw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/90 hover:bg-white text-primary text-xs font-bold px-3 py-2 rounded-lg shadow-md backdrop-blur-sm flex items-center gap-1.5 transition-all hover:shadow-lg"
+                  >
+                    <MaterialIcon name="map" className="text-secondary text-sm" />
+                    <span>Open in Google Maps</span>
+                    <MaterialIcon name="open_in_new" className="text-[10px]" />
+                  </a>
                 </div>
               </div>
             </div>

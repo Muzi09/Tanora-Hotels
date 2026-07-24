@@ -45,10 +45,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert(
-      `Booking Confirmed!\nType: ${isDayUse ? "Day Use" : "Overnight"}\nCheck-in: ${
-        checkIn || "Not selected"
-      }\nCheck-out: ${checkOut || "Not selected"}\nRooms: ${rooms}\nGuests: ${guests}${
-        promoCode ? `\nPromo: ${promoCode}` : ""
+      `Booking Confirmed!\nType: ${isDayUse ? "Day Use" : "Overnight"}\nCheck-in: ${checkIn || "Not selected"
+      }\nCheck-out: ${checkOut || "Not selected"}\nRooms: ${rooms}\nGuests: ${guests}${promoCode ? `\nPromo: ${promoCode}` : ""
       }`
     );
     onClose();
@@ -102,9 +100,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors focus:outline-none"
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-[#dcae5d] transition-transform ${
-                  isDayUse ? "translate-x-6" : "translate-x-1"
-                }`}
+                className={`inline-block h-4 w-4 transform rounded-full bg-[#dcae5d] transition-transform ${isDayUse ? "translate-x-6" : "translate-x-1"
+                  }`}
               />
             </button>
             <span className="text-sm font-semibold tracking-wide text-gray-500">

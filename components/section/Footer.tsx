@@ -82,10 +82,15 @@ export default function Footer() {
                 <MaterialIcon name="mail" className="text-secondary text-xl" />
                 info@tanorahotels.com
               </a>
-              <p className="flex items-start gap-3">
-                <MaterialIcon name="location_on" className="text-secondary text-xl" />
+              <a
+                href="https://maps.app.goo.gl/yQdyQVsYHpe96Njs9?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 hover:text-secondary transition-colors"
+              >
+                <MaterialIcon name="location_on" className="text-secondary text-xl flex-shrink-0 mt-0.5" />
                 <span>Indore, Madhya Pradesh<br/>India</span>
-              </p>
+              </a>
             </div>
             <button
               onClick={openBookingModal}
