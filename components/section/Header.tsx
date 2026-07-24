@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import { usePathname } from "next/navigation";
+import { useBookingModal } from "@/context/BookingModalContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { openBookingModal } = useBookingModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,18 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent scrolling when mobile drawer is active
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -41,8 +55,9 @@ export default function Header() {
       >
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex justify-between items-center">
           <button
-            className="md:hidden text-primary"
+            className="md:hidden text-primary p-1 hover:opacity-80 transition-opacity"
             onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open mobile menu"
           >
             <MaterialIcon name="menu" className="text-3xl" />
           </button>
@@ -84,12 +99,12 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link
-              href="/rooms"
-              className="hidden md:flex items-center justify-center bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-secondary transition-colors duration-300"
+            <button
+              onClick={openBookingModal}
+              className="hidden md:flex items-center justify-center bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-secondary transition-colors duration-300 shadow-md"
             >
               Book Now
-            </Link>
+            </button>
             <a href="tel:8889866686" className="text-primary hover:text-secondary flex">
               <MaterialIcon name="phone" className="text-2xl" />
             </a>
@@ -97,45 +112,58 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-surface flex flex-col">
-          <div className="flex justify-between items-center p-4 border-b border-surface-variant">
-            <h1 className="text-2xl font-display-lg text-primary tracking-widest font-bold">
-              TANORA
-            </h1>
-            <button
-              className="text-primary p-2"
+      {/* Animated Mobile Sidebar Backdrop */}
+      <div
+        className={`fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
+      {/* Animated Mobile Sidebar Drawer */}
+      <div
+        className={`fixed top-0 left-0 bottom-0 z-[100] w-[300px] max-w-[85vw] bg-surface border-r border-surface-variant shadow-2xl flex flex-col transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center p-5 border-b border-surface-variant">
+          <h1 className="text-2xl font-display-lg text-primary tracking-widest font-bold">
+            TANORA
+          </h1>
+          <button
+            className="text-primary p-2 hover:bg-surface-variant rounded-full transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <MaterialIcon name="close" className="text-2xl" />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-5">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.path}
               onClick={() => setMobileMenuOpen(false)}
+              className={`text-lg font-display-lg tracking-wide py-1 border-b border-surface-variant/40 transition-colors ${
+                pathname === link.path ? "text-secondary font-bold" : "text-on-surface hover:text-secondary"
+              }`}
             >
-              <MaterialIcon name="close" className="text-3xl" />
+              {link.name}
+            </Link>
+          ))}
+          <div className="mt-6 pt-4 border-t border-surface-variant">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openBookingModal();
+              }}
+              className="w-full flex items-center justify-center bg-primary text-white px-6 py-3.5 rounded-full text-base font-bold uppercase tracking-widest hover:bg-secondary transition-colors shadow-lg"
+            >
+              Book Now
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-xl font-display-lg tracking-wide ${
-                  pathname === link.path ? "text-secondary" : "text-on-surface"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="mt-8">
-              <Link
-                href="/rooms"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center bg-primary text-white px-6 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-secondary transition-colors"
-              >
-                Book Your Stay
-              </Link>
-            </div>
-          </div>
         </div>
-      )}
+      </div>
     </>
   );
 }

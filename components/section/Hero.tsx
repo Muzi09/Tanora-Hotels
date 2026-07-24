@@ -2,6 +2,7 @@
 
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import { useParallax } from "@/lib/useParallax";
+import { useBookingModal } from "@/context/BookingModalContext";
 
 const HERO_BG =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCIF6Ji2fQoN8drFISbxYwgfTp5xhuO8SYHQ3RZgd9ymS35YHlwyEsaFGn6XvRL4ypq1OsFR9-T_k2Y5lkXwZu5e3v9mqybcXH1EwRXcCh4URnIMPGjWPMBY_15dZlZu4wZeyIUMF3awE1dOyhjGNgQsI_q6JVNZo-EqaPMtc-vMeCq7Q3eD10WtcAGUMNJXeRtbuZhaW2wjI-a2avPZqrVTrvec0eY91KscOa5kDpWhs7rUJW0vJHFWCGaAwFdVx28sfylueD0X17z";
@@ -11,6 +12,7 @@ const LOGO =
 
 export default function Hero() {
   useParallax();
+  const { openBookingModal } = useBookingModal();
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -108,21 +110,12 @@ export default function Hero() {
 
             <div className="flex flex-col w-full text-center">
               <span className="text-white text-[11px] tracking-wider mb-1.5 font-medium whitespace-nowrap">From 2,634 INR/Night</span>
-              <button className="bg-[#D4B776] hover:bg-[#c4a660] text-white h-12 font-medium tracking-widest uppercase transition-colors shadow-lg">
+              <button 
+                onClick={openBookingModal}
+                className="bg-[#D4B776] hover:bg-[#c4a660] text-white h-12 font-medium tracking-widest uppercase transition-colors shadow-lg"
+              >
                 Book Now
               </button>
-            </div>
-          </div>
-
-          {/* Bottom Row: Links */}
-          <div className="flex flex-wrap items-center justify-between mt-6 text-white text-[11px] tracking-wider uppercase font-medium">
-            <div className="flex items-center gap-1.5 cursor-pointer hover:text-[#D4B776] transition-colors">
-              <MaterialIcon name="remove_circle" className="text-[16px]" />
-              <span>Show Less</span>
-            </div>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-[#D4B776] transition-colors">Why Book Direct?</a>
-              <a href="#" className="hover:text-[#D4B776] transition-colors">Manage Booking</a>
             </div>
           </div>
         </div>

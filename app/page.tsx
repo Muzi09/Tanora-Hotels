@@ -9,13 +9,15 @@ import AnimatedCard from "@/components/ui/AnimatedCard";
 import AmenitiesGrid from "@/components/ui/AmenitiesGrid";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import BookingForm from "@/components/section/BookingForm";
+import { useBookingModal } from "@/context/BookingModalContext";
 
 export default function Home() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-14 sm:pt-16">
+      <main className="pt-16">
         <section className="relative min-h-[100vh] lg:h-[90vh] lg:min-h-[600px] flex flex-col justify-end pb-12 pt-16 lg:pt-0 lg:pb-16 px-4 overflow-hidden">
           <Image
             src="/images/hero_hotel_1784569172973.png"
@@ -64,7 +66,7 @@ export default function Home() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {[
                 { title: "Elegant 3-Star Accommodation", icon: "king_bed" },
@@ -129,7 +131,7 @@ export default function Home() {
         <section className="py-24 bg-primary text-white px-4 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-          
+
           <div className="max-w-[1440px] mx-auto relative z-10 reveal">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-display-lg mb-4 text-white">
@@ -225,7 +227,7 @@ export default function Home() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
+
             <AmenitiesGrid />
           </div>
         </section>
@@ -233,7 +235,7 @@ export default function Home() {
         {/* PROMOTIONAL BANNER */}
         <section className="relative py-32 bg-primary flex items-center justify-center text-center px-4">
           <div className="absolute inset-0 opacity-20">
-             <Image src="/images/hero_hotel_1784569172973.png" alt="Background" fill className="object-cover" />
+            <Image src="/images/hero_hotel_1784569172973.png" alt="Background" fill className="object-cover" />
           </div>
           <div className="relative z-10 max-w-3xl mx-auto reveal">
             <h2 className="text-5xl md:text-6xl font-display-lg text-white mb-6">
@@ -242,12 +244,12 @@ export default function Home() {
             <p className="text-xl text-white/90 mb-10 font-light">
               Book directly with us and enjoy exclusive offers, premium hospitality and unforgettable experiences.
             </p>
-            <Link
-              href="/rooms"
-              className="inline-block px-10 py-5 bg-secondary text-primary font-bold text-lg tracking-widest uppercase rounded-full hover:bg-white transition-colors duration-300 shadow-xl"
+            <button
+              onClick={openBookingModal}
+              className="inline-block px-10 py-5 bg-secondary text-primary font-bold text-lg tracking-widest uppercase rounded-full hover:bg-white transition-colors duration-300 shadow-xl cursor-pointer"
             >
               Book Now
-            </Link>
+            </button>
           </div>
         </section>
 

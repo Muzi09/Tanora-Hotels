@@ -7,13 +7,15 @@ import Footer from "@/components/section/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import ImageGallery from "@/components/ui/ImageGallery";
+import { useBookingModal } from "@/context/BookingModalContext";
 
 export default function RoomsPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-14 sm:pt-16">
+      <main className="pt-16">
 
         {/* HERO BANNER */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
@@ -69,12 +71,12 @@ export default function RoomsPage() {
                 ))}
               </div>
 
-              <Link
-                href="#"
-                className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg"
+              <button
+                onClick={openBookingModal}
+                className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg cursor-pointer"
               >
                 Book Now
-              </Link>
+              </button>
             </div>
           </div>
         </section>
@@ -109,12 +111,12 @@ export default function RoomsPage() {
                 ))}
               </div>
 
-              <Link
-                href="#"
-                className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg"
+              <button
+                onClick={openBookingModal}
+                className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg cursor-pointer"
               >
                 Book Now
-              </Link>
+              </button>
             </div>
           </div>
         </section>

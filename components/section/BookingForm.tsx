@@ -51,6 +51,9 @@ export default function BookingForm() {
               <select className="w-full h-full pl-10 pr-10 bg-transparent text-on-surface appearance-none outline-none cursor-pointer text-sm font-medium">
                 <option>Tanora Hotel, Vijay Nagar, Indore</option>
               </select>
+              <select className="w-full h-full pl-10 pr-10 bg-transparent text-on-surface appearance-none outline-none cursor-pointer text-sm font-medium">
+                <option>Auren, Vijay Nagar, Indore</option>
+              </select>
               <MaterialIcon name="expand_more" className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none" />
             </div>
           </div>
@@ -88,14 +91,15 @@ export default function BookingForm() {
           <div className="flex flex-col">
             <label className="text-white text-xs font-semibold mb-1.5 tracking-wide">Rooms & Guests</label>
             <div className="relative h-12 bg-white">
-              <MaterialIcon name="person" className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg" />
-              <div 
+              <MaterialIcon name="person" className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg pointer-events-none" />
+              <button 
+                type="button"
                 className="w-full h-full pl-10 pr-3 bg-transparent text-on-surface text-sm font-medium outline-none cursor-pointer flex items-center justify-between"
                 onClick={() => setIsGuestPopoverOpen(!isGuestPopoverOpen)}
               >
                 <span>{rooms} Room{rooms > 1 ? 's' : ''}, {guests} Guest{guests > 1 ? 's' : ''}</span>
-                <MaterialIcon name="expand_more" className="text-on-surface-variant text-lg" />
-              </div>
+                <MaterialIcon name="expand_more" className="text-on-surface-variant text-lg pointer-events-none" />
+              </button>
               
               {/* Dropdown Popover */}
               {isGuestPopoverOpen && (
@@ -107,14 +111,24 @@ export default function BookingForm() {
                     </div>
                     <div className="flex items-center gap-3">
                       <button 
-                        onClick={() => setRooms(Math.max(1, rooms - 1))}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setRooms(Math.max(1, rooms - 1));
+                        }}
                         className="w-8 h-8 rounded-full border border-surface-variant flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
                       >
                         <MaterialIcon name="remove" className="text-sm" />
                       </button>
                       <span className="text-on-surface font-semibold w-4 text-center">{rooms}</span>
                       <button 
-                        onClick={() => setRooms(Math.min(10, rooms + 1))}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setRooms(Math.min(10, rooms + 1));
+                        }}
                         className="w-8 h-8 rounded-full border border-surface-variant flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
                       >
                         <MaterialIcon name="add" className="text-sm" />
@@ -129,14 +143,24 @@ export default function BookingForm() {
                     </div>
                     <div className="flex items-center gap-3">
                       <button 
-                        onClick={() => setGuests(Math.max(1, guests - 1))}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setGuests(Math.max(1, guests - 1));
+                        }}
                         className="w-8 h-8 rounded-full border border-surface-variant flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
                       >
                         <MaterialIcon name="remove" className="text-sm" />
                       </button>
                       <span className="text-on-surface font-semibold w-4 text-center">{guests}</span>
                       <button 
-                        onClick={() => setGuests(Math.min(20, guests + 1))}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setGuests(Math.min(20, guests + 1));
+                        }}
                         className="w-8 h-8 rounded-full border border-surface-variant flex items-center justify-center text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
                       >
                         <MaterialIcon name="add" className="text-sm" />
@@ -145,7 +169,12 @@ export default function BookingForm() {
                   </div>
                   
                   <button 
-                    onClick={() => setIsGuestPopoverOpen(false)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setIsGuestPopoverOpen(false);
+                    }}
                     className="w-full py-2 bg-primary text-white rounded-lg text-sm font-semibold uppercase tracking-wide hover:bg-secondary transition-colors"
                   >
                     Done
@@ -172,17 +201,6 @@ export default function BookingForm() {
               Book Now
             </button>
           </div>
-        </div>
-      </div>
-
-      {/* Footer links */}
-      <div className="flex justify-between items-center mt-4">
-        <button className="flex items-center gap-1.5 text-white hover:text-[#dcae5d] transition-colors text-xs font-semibold tracking-wide">
-          <MaterialIcon name="remove_circle" className="text-base" /> Show Less
-        </button>
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-white text-xs font-semibold tracking-wide">
-          <a href="#" className="hover:text-[#dcae5d] transition-colors">Why Book Direct?</a>
-          <a href="#" className="hover:text-[#dcae5d] transition-colors">Manage Booking</a>
         </div>
       </div>
     </div>

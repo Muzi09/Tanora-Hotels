@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import MaterialIcon from "@/components/ui/MaterialIcon";
+import { useBookingModal } from "@/context/BookingModalContext";
 
 export default function Footer() {
+  const { openBookingModal } = useBookingModal();
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
@@ -84,12 +87,12 @@ export default function Footer() {
                 <span>Indore, Madhya Pradesh<br/>India</span>
               </p>
             </div>
-            <Link
-              href="/rooms"
-              className="mt-2 inline-flex justify-center bg-secondary text-primary font-bold px-6 py-3 rounded-full hover:bg-white transition-colors"
+            <button
+              onClick={openBookingModal}
+              className="mt-2 inline-flex justify-center bg-secondary text-primary font-bold px-6 py-3 rounded-full hover:bg-white transition-colors shadow-md"
             >
               Book Your Stay
-            </Link>
+            </button>
           </div>
 
         </div>
