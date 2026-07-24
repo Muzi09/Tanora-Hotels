@@ -58,12 +58,13 @@ export default function Hero() {
 
             <div className="flex flex-col w-full text-left">
               <span className="text-white text-[11px] uppercase tracking-wider mb-1.5 font-medium">Hotel</span>
-              <div className="bg-white text-gray-800 h-12 px-3 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
-                <div className="flex items-center gap-2 overflow-hidden">
-                  <MaterialIcon name="business" className="text-gray-400 text-[20px]" />
-                  <span className="text-sm font-medium truncate">Jardin Hotels, Nipania, Indore</span>
-                </div>
-                <MaterialIcon name="keyboard_arrow_down" className="text-gray-400 text-[20px] flex-shrink-0" />
+              <div className="relative h-12 bg-white text-gray-800 border-2 border-[#D4B776]">
+                <MaterialIcon name="business" className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px] pointer-events-none" />
+                <select className="w-full h-full pl-10 pr-10 bg-transparent text-gray-800 appearance-none outline-none cursor-pointer text-sm font-medium">
+                  <option>Tanora Hotel, Vijay Nagar, Indore</option>
+                  <option>Auren, Indore</option>
+                </select>
+                <MaterialIcon name="keyboard_arrow_down" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px] pointer-events-none" />
               </div>
             </div>
           </div>

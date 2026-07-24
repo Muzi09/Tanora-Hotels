@@ -147,6 +147,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   />
                   <select className="w-full h-full pl-10 pr-10 bg-transparent text-gray-900 appearance-none outline-none cursor-pointer text-sm font-medium rounded-lg">
                     <option>Tanora Hotel, Vijay Nagar, Indore</option>
+                    <option>Auren, Indore</option>
                   </select>
                   <MaterialIcon
                     name="expand_more"

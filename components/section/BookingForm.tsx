@@ -50,9 +50,7 @@ export default function BookingForm() {
               <MaterialIcon name="domain" className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl" />
               <select className="w-full h-full pl-10 pr-10 bg-transparent text-on-surface appearance-none outline-none cursor-pointer text-sm font-medium">
                 <option>Tanora Hotel, Vijay Nagar, Indore</option>
-              </select>
-              <select className="w-full h-full pl-10 pr-10 bg-transparent text-on-surface appearance-none outline-none cursor-pointer text-sm font-medium">
-                <option>Auren, Vijay Nagar, Indore</option>
+                <option>Auren, Indore</option>
               </select>
               <MaterialIcon name="expand_more" className="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none" />
             </div>
