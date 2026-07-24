@@ -13,8 +13,8 @@ export default function BanquetPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-16">
-        
+      <main className="pt-14 sm:pt-16">
+
         {/* HERO BANNER */}
         <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center px-4">
           <Image
@@ -83,8 +83,8 @@ export default function BanquetPage() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
-            <ImageGallery 
+
+            <ImageGallery
               images={[
                 { src: "/images/banquet_hall_1784569314141.png", alt: "Banquet Hall Setup", category: "Setup" },
                 { src: "/images/banquet_hall_1784569314141.png", alt: "Dining Layout", category: "Dining" },

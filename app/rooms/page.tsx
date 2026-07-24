@@ -13,8 +13,8 @@ export default function RoomsPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-16">
-        
+      <main className="pt-14 sm:pt-16">
+
         {/* HERO BANNER */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
           <Image
@@ -54,7 +54,7 @@ export default function RoomsPage() {
               <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
                 A perfect blend of elegance and functionality. The Standard Room offers a peaceful retreat featuring modern comforts, a plush king-size bed, and a stylish workspace designed for both relaxation and productivity.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-y-4 gap-x-6 mb-10">
                 {[
                   "King Size Bed", "Twin Option", "Premium Linens", "Hypoallergenic Bedding",
@@ -94,7 +94,7 @@ export default function RoomsPage() {
               <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
                 Experience unparalleled luxury in our Executive Suite. Featuring a massive open layout with a dedicated private lounge area, an oversized bathroom, and premium amenities curated for our most discerning guests.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-y-4 gap-x-6 mb-10">
                 {[
                   "Massive Open Layout", "Private Lounge Area", "Premium Sofa Set", "Luxury King Bed",
@@ -128,8 +128,8 @@ export default function RoomsPage() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
-            <ImageGallery 
+
+            <ImageGallery
               images={[
                 { src: "/images/standard_room_1784569189614.png", alt: "Standard Room", category: "Standard Room" },
                 { src: "/images/executive_suite_1784569211005.png", alt: "Executive Suite", category: "Executive Suite" },

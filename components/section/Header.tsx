@@ -90,7 +90,7 @@ export default function Header() {
             >
               Book Now
             </Link>
-            <a href="tel:8889866686" className="text-primary hover:text-secondary hidden sm:flex">
+            <a href="tel:8889866686" className="text-primary hover:text-secondary flex">
               <MaterialIcon name="phone" className="text-2xl" />
             </a>
           </div>

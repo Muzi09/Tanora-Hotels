@@ -13,8 +13,8 @@ export default function RooftopPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-16">
-        
+      <main className="pt-14 sm:pt-16">
+
         {/* HERO BANNER */}
         <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center px-4">
           <Image
@@ -81,8 +81,8 @@ export default function RooftopPage() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
-            <ImageGallery 
+
+            <ImageGallery
               images={[
                 { src: "/images/restaurant_luxe_1784569279478.png", alt: "The LUXE Ambiance", category: "Ambiance" },
                 { src: "/images/restaurant_luxe_1784569279478.png", alt: "Cocktails", category: "Drinks" },

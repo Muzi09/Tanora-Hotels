@@ -12,8 +12,8 @@ export default function AboutPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-16">
-        
+      <main className="pt-14 sm:pt-16">
+
         {/* HERO BANNER */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
           <Image
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <h3 className="text-4xl md:text-5xl font-display-lg text-primary mb-10">
               Welcome to Tanora Hotel
             </h3>
-            
+
             <p className="text-lg text-on-surface-variant leading-relaxed mb-6 text-justify md:text-center">
               Nestled in the vibrant heart of Indore, Tanora Hotel is a premium 3-star property that offers more than just a place to stay. It is a sanctuary of comfort, elegance, and genuine hospitality. From the moment you arrive, our dedication to creating unforgettable experiences ensures that your time with us is nothing short of exceptional.
             </p>
@@ -130,7 +130,7 @@ export default function AboutPage() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
+
             <AmenitiesGrid />
           </div>
         </section>

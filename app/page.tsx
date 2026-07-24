@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-14">
+      <main className="pt-14 sm:pt-16">
         <section className="relative min-h-[100vh] lg:h-[90vh] lg:min-h-[600px] flex flex-col justify-end pb-12 pt-16 lg:pt-0 lg:pb-16 px-4 overflow-hidden">
           <Image
             src="/images/hero_hotel_1784569172973.png"

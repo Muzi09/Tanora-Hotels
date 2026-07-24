@@ -12,8 +12,8 @@ export default function MeetingsPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-16">
-        
+      <main className="pt-14 sm:pt-16">
+
         {/* HERO BANNER */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
           <Image
@@ -50,7 +50,7 @@ export default function MeetingsPage() {
               <h3 className="text-4xl md:text-5xl font-display-lg text-primary mb-6">
                 The Boardroom
               </h3>
-              
+
               <div className="flex items-center gap-2 mb-6">
                 <MaterialIcon name="group" className="text-primary text-2xl" />
                 <span className="text-lg font-medium text-on-surface">Capacity: 10 to 12 Guests</span>
@@ -95,7 +95,7 @@ export default function MeetingsPage() {
               <h3 className="text-4xl md:text-5xl font-display-lg text-primary mb-6">
                 Regent Room
               </h3>
-              
+
               <div className="flex items-center gap-2 mb-6">
                 <MaterialIcon name="group" className="text-primary text-2xl" />
                 <span className="text-lg font-medium text-on-surface">Capacity: 5 to 6 Guests</span>

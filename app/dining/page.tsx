@@ -13,8 +13,8 @@ export default function DiningPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-16">
-        
+      <main className="pt-14 sm:pt-16">
+
         {/* HERO BANNER */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
           <Image
@@ -51,7 +51,7 @@ export default function DiningPage() {
               <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
                 Start your day with a sumptuous breakfast or enjoy a leisurely lunch and dinner in our elegant all-day dining restaurant. Offering a wide range of culinary delights to satisfy every palate.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-y-4 gap-x-6 mb-10">
                 {[
                   "All Day Dining", "Family Friendly", "Breakfast, Lunch, Dinner",
@@ -72,14 +72,14 @@ export default function DiningPage() {
         <section className="py-24 bg-surface-container-low px-4">
           <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row-reverse gap-16 items-center reveal">
             <div className="lg:w-1/2 w-full flex justify-center">
-               <div className="grid grid-cols-2 gap-4">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg mt-8">
-                    <Image src="/images/restaurant_pavilion_1784569251819.png" alt="Private Dining" fill className="object-cover" />
-                  </div>
-                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
-                    <Image src="/images/restaurant_luxe_1784569279478.png" alt="Private Dining Detail" fill className="object-cover" />
-                  </div>
-               </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg mt-8">
+                  <Image src="/images/restaurant_pavilion_1784569251819.png" alt="Private Dining" fill className="object-cover" />
+                </div>
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
+                  <Image src="/images/restaurant_luxe_1784569279478.png" alt="Private Dining Detail" fill className="object-cover" />
+                </div>
+              </div>
             </div>
             <div className="lg:w-1/2 w-full">
               <h2 className="text-sm md:text-base font-bold text-secondary uppercase tracking-[0.2em] mb-2">
@@ -91,7 +91,7 @@ export default function DiningPage() {
               <p className="text-lg text-on-surface-variant mb-8 leading-relaxed">
                 For those seeking an exclusive dining experience, The Reserve offers beautifully appointed private dining rooms ideal for business dinners, confidential meetings, and intimate family celebrations.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-y-4 gap-x-6 mb-10">
                 {[
                   "Private Dining", "VIP Experience", "Private Bar", "Air Conditioning",
@@ -104,7 +104,7 @@ export default function DiningPage() {
                   </div>
                 ))}
               </div>
-              
+
               <Link
                 href="/contact"
                 className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg"
@@ -124,8 +124,8 @@ export default function DiningPage() {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto"></div>
             </div>
-            
-            <ImageGallery 
+
+            <ImageGallery
               images={[
                 { src: "/images/restaurant_pavilion_1784569251819.png", alt: "The Pavilion", category: "The Pavilion" },
                 { src: "/images/restaurant_luxe_1784569279478.png", alt: "Private Dining Area", category: "The Reserve" },
