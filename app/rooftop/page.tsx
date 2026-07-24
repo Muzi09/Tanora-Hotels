@@ -13,7 +13,7 @@ export default function RooftopPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-14 sm:pt-16">
+      <main className="pt-16">
 
         {/* HERO BANNER */}
         <section className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-center px-4">

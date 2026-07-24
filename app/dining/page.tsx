@@ -13,7 +13,7 @@ export default function DiningPage() {
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-14 sm:pt-16">
+      <main className="pt-16">
 
         {/* HERO BANNER */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">

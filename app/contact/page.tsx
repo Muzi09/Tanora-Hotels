@@ -6,13 +6,15 @@ import Header from "@/components/section/Header";
 import Footer from "@/components/section/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import MaterialIcon from "@/components/ui/MaterialIcon";
+import { useBookingModal } from "@/context/BookingModalContext";
 
 export default function ContactPage() {
+  const { openBookingModal } = useBookingModal();
   return (
     <>
       <RevealObserver />
       <Header />
-      <main className="pt-14 sm:pt-16">
+      <main className="pt-16">
 
         {/* HERO BANNER */}
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center text-center px-4">
@@ -153,9 +155,12 @@ export default function ContactPage() {
             <a href="tel:8889866686" className="px-10 py-5 bg-white text-primary font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg flex items-center justify-center gap-2">
               <MaterialIcon name="phone" /> Call Now
             </a>
-            <Link href="/rooms" className="px-10 py-5 bg-secondary text-primary font-bold tracking-widest uppercase rounded-full hover:bg-white transition-colors duration-300 shadow-lg flex items-center justify-center gap-2">
+            <button
+              onClick={openBookingModal}
+              className="px-10 py-5 bg-secondary text-primary font-bold tracking-widest uppercase rounded-full hover:bg-white transition-colors duration-300 shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+            >
               <MaterialIcon name="event_seat" /> Book Your Stay
-            </Link>
+            </button>
           </div>
         </section>
 
