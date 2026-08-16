@@ -8,17 +8,14 @@ import RevealObserver from "@/components/RevealObserver";
 import AnimatedCard from "@/components/ui/AnimatedCard";
 import AmenitiesGrid from "@/components/ui/AmenitiesGrid";
 import MaterialIcon from "@/components/ui/MaterialIcon";
-import BookingForm from "@/components/section/BookingForm";
-import { useBookingModal } from "@/context/BookingModalContext";
 
 export default function Home() {
-  const { openBookingModal } = useBookingModal();
   return (
     <>
       <RevealObserver />
       <Header />
       <main className="pt-16">
-        <section className="relative min-h-[100vh] lg:h-[90vh] lg:min-h-[600px] flex flex-col justify-end pb-12 pt-16 lg:pt-0 lg:pb-16 px-4 overflow-hidden">
+        <section className="relative min-h-[100vh] lg:h-[90vh] lg:min-h-[600px] flex flex-col justify-center pb-12 pt-16 lg:pt-0 lg:pb-16 px-4 overflow-hidden">
           <Image
             src="/images/hero_hotel_1784569172973.png"
             alt="Tanora Hotel Exterior"
@@ -27,16 +24,21 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center reveal mb-8">
+          <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center reveal">
             <h2 className="text-sm md:text-base font-bold text-secondary-fixed uppercase tracking-[0.3em] mb-4">
               Premium 3 star hotel in Indore
             </h2>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display-lg text-white leading-tight drop-shadow-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display-lg text-white leading-tight drop-shadow-xl mb-10">
               Luxury Comfort Exceptional Hospitililty
             </h1>
-          </div>
-          <div className="relative z-10 w-full reveal max-w-[1200px] mx-auto">
-            <BookingForm />
+            <a
+              href="https://reservations.hotel-spider.com/03w6a62fee16853"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-5 bg-[#dcae5d] text-white font-bold text-lg tracking-widest uppercase rounded-full hover:bg-[#c99f52] transition-colors duration-300 shadow-xl cursor-pointer"
+            >
+              Book Now
+            </a>
           </div>
         </section>
 
@@ -244,12 +246,14 @@ export default function Home() {
             <p className="text-xl text-white/90 mb-10 font-light">
               Book directly with us and enjoy exclusive offers, premium hospitality and unforgettable experiences.
             </p>
-            <button
-              onClick={openBookingModal}
+            <a
+              href="https://reservations.hotel-spider.com/03w6a62fee16853"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-10 py-5 bg-secondary text-primary font-bold text-lg tracking-widest uppercase rounded-full hover:bg-white transition-colors duration-300 shadow-xl cursor-pointer"
             >
               Book Now
-            </button>
+            </a>
           </div>
         </section>
 

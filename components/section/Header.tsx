@@ -3,13 +3,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import { usePathname } from "next/navigation";
-import { useBookingModal } from "@/context/BookingModalContext";
-
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { openBookingModal } = useBookingModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,12 +96,14 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={openBookingModal}
+            <a
+              href="https://reservations.hotel-spider.com/03w6a62fee16853"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center justify-center bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-secondary transition-colors duration-300 shadow-md"
             >
               Book Now
-            </button>
+            </a>
             <a href="tel:8889866686" className="text-primary hover:text-secondary flex">
               <MaterialIcon name="phone" className="text-2xl" />
             </a>
@@ -152,15 +151,15 @@ export default function Header() {
             </Link>
           ))}
           <div className="mt-6 pt-4 border-t border-surface-variant">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openBookingModal();
-              }}
+            <a
+              href="https://reservations.hotel-spider.com/03w6a62fee16853"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center bg-primary text-white px-6 py-3.5 rounded-full text-base font-bold uppercase tracking-widest hover:bg-secondary transition-colors shadow-lg"
             >
               Book Now
-            </button>
+            </a>
           </div>
         </div>
       </div>

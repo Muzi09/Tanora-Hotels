@@ -2,10 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import MaterialIcon from "@/components/ui/MaterialIcon";
-import { useBookingModal } from "@/context/BookingModalContext";
-
 export default function Footer() {
-  const { openBookingModal } = useBookingModal();
   const quickLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
@@ -92,12 +89,14 @@ export default function Footer() {
                 <span>Indore, Madhya Pradesh<br/>India</span>
               </a>
             </div>
-            <button
-              onClick={openBookingModal}
+            <a
+              href="https://reservations.hotel-spider.com/03w6a62fee16853"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-2 inline-flex justify-center bg-secondary text-primary font-bold px-6 py-3 rounded-full hover:bg-white transition-colors shadow-md"
             >
-              Book Your Stay
-            </button>
+              Book Now
+            </a>
           </div>
 
         </div>

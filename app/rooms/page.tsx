@@ -7,10 +7,7 @@ import Footer from "@/components/section/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import MaterialIcon from "@/components/ui/MaterialIcon";
 import ImageGallery from "@/components/ui/ImageGallery";
-import { useBookingModal } from "@/context/BookingModalContext";
-
 export default function RoomsPage() {
-  const { openBookingModal } = useBookingModal();
   return (
     <>
       <RevealObserver />
@@ -71,12 +68,14 @@ export default function RoomsPage() {
                 ))}
               </div>
 
-              <button
-                onClick={openBookingModal}
+              <a
+                href="https://reservations.hotel-spider.com/03w6a62fee16853"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg cursor-pointer"
               >
                 Book Now
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -111,12 +110,14 @@ export default function RoomsPage() {
                 ))}
               </div>
 
-              <button
-                onClick={openBookingModal}
+              <a
+                href="https://reservations.hotel-spider.com/03w6a62fee16853"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-10 py-4 bg-primary text-white font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg cursor-pointer"
               >
                 Book Now
-              </button>
+              </a>
             </div>
           </div>
         </section>

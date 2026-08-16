@@ -22,8 +22,6 @@ export const metadata: Metadata = {
     "A Heritage of Quiet Confidence. Refined sanctuaries, exquisite dining, and grand banquets.",
 };
 
-import { BookingModalProvider } from "@/context/BookingModalContext";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background font-body-md overflow-x-hidden">
-        <BookingModalProvider>{children}</BookingModalProvider>
+        {children}
       </body>
     </html>
   );

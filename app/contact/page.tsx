@@ -6,10 +6,7 @@ import Header from "@/components/section/Header";
 import Footer from "@/components/section/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import MaterialIcon from "@/components/ui/MaterialIcon";
-import { useBookingModal } from "@/context/BookingModalContext";
-
 export default function ContactPage() {
-  const { openBookingModal } = useBookingModal();
   return (
     <>
       <RevealObserver />
@@ -180,12 +177,14 @@ export default function ContactPage() {
             <a href="tel:8889866686" className="px-10 py-5 bg-white text-primary font-bold tracking-widest uppercase rounded-full hover:bg-secondary transition-colors duration-300 shadow-lg flex items-center justify-center gap-2">
               <MaterialIcon name="phone" /> Call Now
             </a>
-            <button
-              onClick={openBookingModal}
+            <a
+              href="https://reservations.hotel-spider.com/03w6a62fee16853"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-10 py-5 bg-secondary text-primary font-bold tracking-widest uppercase rounded-full hover:bg-white transition-colors duration-300 shadow-lg flex items-center justify-center gap-2 cursor-pointer"
             >
-              <MaterialIcon name="event_seat" /> Book Your Stay
-            </button>
+              <MaterialIcon name="event_seat" /> Book Now
+            </a>
           </div>
         </section>
 
