@@ -226,7 +226,7 @@ export function AdminProvider({
       try {
         if (sectionKey === "settings") {
           const API_BASE =
-            process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+            process.env.NEXT_PUBLIC_API_URL || "https://tanora-hotels.onrender.com/api";
           const res = await fetch(`${API_BASE}/settings`, {
             method: "PUT",
             headers: {
@@ -271,7 +271,7 @@ export function AdminProvider({
       try {
         if (sectionKey === "settings") {
           const API_BASE =
-            process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+            process.env.NEXT_PUBLIC_API_URL || "https://tanora-hotels.onrender.com/api";
           const res = await fetch(`${API_BASE}/settings`, {
             method: "PUT",
             headers: {

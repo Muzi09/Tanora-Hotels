@@ -3,7 +3,7 @@ import { HomePageData, CmsPageData } from './types';
 import { DEFAULT_HOME_DATA } from './defaultData';
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+  process.env.NEXT_PUBLIC_API_URL || 'https://tanora-hotels.onrender.com/api';
 
 /**
  * Consolidated fetch for all homepage sections and settings.
