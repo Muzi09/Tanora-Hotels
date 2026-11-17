@@ -1,0 +1,851 @@
+{
+  "about": {
+    "title": "About",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/hero_hotel_1784569172973.png",
+          "alt": "Tanora Hotel",
+          "heading": "About Tanora Hotel"
+        }
+      },
+      "hotelStory": {
+        "title": "Hotel Story",
+        "content": {
+          "heading": "Hotel Story",
+          "heading2": "Welcome to Tanora Hotel",
+          "description": "Nestled in the vibrant heart of Indore, Tanora Hotel is a premium 3-star property that offers more than just a place to stay. It is a sanctuary of comfort, elegance, and genuine hospitality. From the moment you arrive, our dedication to creating unforgettable experiences ensures that your time with us is nothing short of exceptional.",
+          "description2": "At Tanora, we perfectly blend modern convenience with timeless charm. As a proud 3-star hotel, our thoughtfully designed rooms and suites offer a peaceful retreat from the city's hustle and bustle. Whether you are winding down after a busy day of business or exploring Indore’s rich culture, our attentive staff is committed to anticipating your needs with personalized, warm service."
+        }
+      },
+      "whyChooseTanora": {
+        "title": "Why Choose Tanora",
+        "content": {
+          "heading": "Why Choose Tanora",
+          "items": [
+            {
+              "title": "Elegant 3-Star Accommodation",
+              "desc": "Beautifully appointed rooms equipped with modern amenities.",
+              "icon": "bedroom_parent"
+            },
+            {
+              "title": "Delightful Dining",
+              "desc": "Curated culinary experiences featuring local and international cuisine.",
+              "icon": "restaurant"
+            },
+            {
+              "title": "Hospitality from the Heart",
+              "desc": "Exceptional round-the-clock service.",
+              "icon": "favorite"
+            },
+            {
+              "title": "An Oasis of Calm",
+              "desc": "Peaceful atmosphere for complete relaxation.",
+              "icon": "spa"
+            }
+          ]
+        }
+      },
+      "missionVision": {
+        "title": "Mission & Vision",
+        "content": {
+          "icon": "flag",
+          "heading": "Our Mission",
+          "description": "At Tanora Hotel, our mission is to deliver comfortable, modern, and affordable stays with genuine hospitality. We are committed to providing clean, well-equipped rooms and friendly service that makes every guest feel welcome and cared for, ensuring a pleasant and hassle-free experience from check-in to check-out.",
+          "icon2": "visibility",
+          "heading2": "Our Vision",
+          "description2": "Our vision is to become the preferred choice for travelers in Indore by building a reputation as a reliable, new-generation hotel that prioritizes guest comfort, value, and satisfaction. We aim to create memorable stays that inspire guests to return again and again."
+        }
+      },
+      "amenities": {
+        "title": "Amenities",
+        "content": {
+          "heading": "Hotel Amenities",
+          "selectedAmenities": [
+            "Restaurant",
+            "Bar",
+            "Free WiFi",
+            "Valet Parking",
+            "Parking Space",
+            "Concierge",
+            "Laundry",
+            "24 Hour Service",
+            "Room Service",
+            "Meeting Rooms",
+            "Conference Room",
+            "Banquet Hall",
+            "Doctor On Call",
+            "Wake Up Call",
+            "Daily Housekeeping",
+            "Turndown Service",
+            "CCTV Security",
+            "Express Check In",
+            "Rooftop Restaurant & Bar",
+            "Travel Desk",
+            "Ironing Service",
+            "Photocopying",
+            "Smoking & Non Smoking",
+            "Mini Bar",
+            "In Room Dining",
+            "Security Guard",
+            "First Aid",
+            "Fire Safety",
+            "Elevator",
+            "Smoking Area",
+            "Newsstand",
+            "Board Games",
+            "Key Card Access"
+          ]
+        }
+      }
+    }
+  },
+  "rooms": {
+    "title": "Rooms",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/standard_room_1784569189614.png",
+          "alt": "Tanora Rooms",
+          "heading": "Your Sanctuary of Comfort",
+          "heading2": "Stay With Us",
+          "description": "Whether you are traveling for business, a romantic getaway, or a peaceful staycation, our rooms combine modern technology, premium comfort and warm hospitality to create an unforgettable experience."
+        }
+      },
+      "standardRoom": {
+        "title": "Standard Room",
+        "content": {
+          "image": "/images/standard_room_1784569189614.png",
+          "alt": "Standard Room",
+          "heading": "Standard Room",
+          "description": "A perfect blend of elegance and functionality. The Standard Room offers a peaceful retreat featuring modern comforts, a plush king-size bed, and a stylish workspace designed for both relaxation and productivity.",
+          "items": [
+            "King Size Bed",
+            "Twin Option",
+            "Premium Linens",
+            "Hypoallergenic Bedding",
+            "Workspace",
+            "High Speed WiFi",
+            "Smart TV",
+            "Netflix & YouTube",
+            "Rain Shower",
+            "Luxury Toiletries",
+            "Mini Bar",
+            "Coffee & Tea Station",
+            "Digital Safe",
+            "Climate Control",
+            "Blackout Curtains",
+            "Fast Charging Ports"
+          ],
+          "icon": "check",
+          "link": "https://reservations.hotel-spider.com/03w6a62fee16853",
+          "buttonText": "Book Now"
+        }
+      },
+      "executiveSuite": {
+        "title": "Executive Suite",
+        "content": {
+          "image": "/images/executive_suite_1784569211005.png",
+          "alt": "Executive Suite",
+          "heading": "Executive Suite",
+          "description": "Experience unparalleled luxury in our Executive Suite. Featuring a massive open layout with a dedicated private lounge area, an oversized bathroom, and premium amenities curated for our most discerning guests.",
+          "items": [
+            "Massive Open Layout",
+            "Private Lounge Area",
+            "Premium Sofa Set",
+            "Luxury King Bed",
+            "Premium Linens",
+            "Oversized Bathroom",
+            "Luxury Bathroom Amenities",
+            "Premium Coffee Station",
+            "Expanded Wardrobe",
+            "High Speed WiFi",
+            "Smart TV",
+            "Mini Bar",
+            "Digital Safe",
+            "Climate Control",
+            "Everything from Standard Room"
+          ],
+          "icon": "check",
+          "link": "https://reservations.hotel-spider.com/03w6a62fee16853",
+          "buttonText": "Book Now"
+        }
+      },
+      "roomGallery": {
+        "title": "Room Gallery",
+        "content": {
+          "heading": "Rooms Gallery",
+          "images": [
+            {
+              "src": "/images/standard_room_1784569189614.png",
+              "alt": "Standard Room",
+              "category": "Standard Room"
+            },
+            {
+              "src": "/images/executive_suite_1784569211005.png",
+              "alt": "Executive Suite",
+              "category": "Executive Suite"
+            },
+            {
+              "src": "/images/standard_room_1784569189614.png",
+              "alt": "Standard Room Details",
+              "category": "Standard Room"
+            },
+            {
+              "src": "/images/executive_suite_1784569211005.png",
+              "alt": "Executive Suite Details",
+              "category": "Executive Suite"
+            }
+          ],
+          "categories": [
+            "Standard Room",
+            "Executive Suite"
+          ]
+        }
+      }
+    }
+  },
+  "dining": {
+    "title": "Dining",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/restaurant_pavilion_1784569251819.png",
+          "alt": "Tanora Dining Experiences",
+          "heading": "Extraordinary Dining Experiences"
+        }
+      },
+      "thePavilion": {
+        "title": "The Pavilion",
+        "content": {
+          "image": "/images/restaurant_pavilion_1784569251819.png",
+          "alt": "The Pavilion",
+          "heading": "Ground Floor Restaurant",
+          "heading2": "The Pavilion",
+          "description": "Start your day with a sumptuous breakfast or enjoy a leisurely lunch and dinner in our elegant all-day dining restaurant. Offering a wide range of culinary delights to satisfy every palate.",
+          "items": [
+            "All Day Dining",
+            "Family Friendly",
+            "Breakfast, Lunch, Dinner",
+            "Coffee Meetings",
+            "Multi Cuisine",
+            "Vegetarian Options",
+            "Healthy Options",
+            "Buffet & À La Carte",
+            "Grilled Dishes"
+          ],
+          "icon": "done_all"
+        }
+      },
+      "theReservePrivateDining": {
+        "title": "The Reserve (Private Dining)",
+        "content": {
+          "image": "/images/restaurant_pavilion_1784569251819.png",
+          "alt": "Private Dining",
+          "image2": "/images/restaurant_luxe_1784569279478.png",
+          "alt2": "Private Dining Detail",
+          "heading": "Private Dining Rooms",
+          "heading2": "The Reserve",
+          "description": "For those seeking an exclusive dining experience, The Reserve offers beautifully appointed private dining rooms ideal for business dinners, confidential meetings, and intimate family celebrations.",
+          "items": [
+            "Private Dining",
+            "VIP Experience",
+            "Private Bar",
+            "Air Conditioning",
+            "Smart Screens",
+            "Sound System",
+            "Business Dinners",
+            "Family Celebrations",
+            "Confidential Meetings"
+          ],
+          "icon": "star",
+          "link": "/contact",
+          "buttonText": "Reserve Now"
+        }
+      },
+      "diningGallery": {
+        "title": "Dining Gallery",
+        "content": {
+          "heading": "Dining Gallery",
+          "images": [
+            {
+              "src": "/images/restaurant_pavilion_1784569251819.png",
+              "alt": "The Pavilion",
+              "category": "The Pavilion"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Private Dining Area",
+              "category": "The Reserve"
+            },
+            {
+              "src": "/images/restaurant_pavilion_1784569251819.png",
+              "alt": "Food & Drinks",
+              "category": "The Pavilion"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Cocktails",
+              "category": "The Reserve"
+            }
+          ],
+          "categories": [
+            "The Pavilion",
+            "The Reserve"
+          ]
+        }
+      }
+    }
+  },
+  "rooftop": {
+    "title": "Rooftop",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/restaurant_luxe_1784569279478.png",
+          "alt": "The LUXE Rooftop Restaurant & Bar",
+          "heading": "Rooftop Restaurant & Bar",
+          "heading2": "The LUXE",
+          "description": "Elevate your evenings with panoramic city skyline views, premium spirits, and an unforgettable nightlife experience."
+        }
+      },
+      "details": {
+        "title": "Details",
+        "content": {
+          "items": [
+            {
+              "title": "Luxury Ambiance",
+              "icon": "deck",
+              "desc": "Open-air seating under the stars with sophisticated decor."
+            },
+            {
+              "title": "City Skyline",
+              "icon": "location_city",
+              "desc": "Breathtaking panoramic views of the vibrant city."
+            },
+            {
+              "title": "Premium Spirits",
+              "icon": "liquor",
+              "desc": "Curated cocktails, fine wines, and rare spirits."
+            },
+            {
+              "title": "Fusion Cuisine",
+              "icon": "restaurant",
+              "desc": "Charcoal grills and global fusion delicacies."
+            }
+          ]
+        }
+      },
+      "experienceText": {
+        "title": "Experience Text",
+        "content": {
+          "icon": "nightlife",
+          "heading": "A Nightlife Experience Like No Other",
+          "description": "The LUXE is the ultimate destination for those looking to unwind in style. Whether you are sipping on our signature cocktails, enjoying the finest wine collection, or indulging in our charcoal grills and fusion cuisine, the elegant open-air seating and evening events create the perfect sophisticated ambiance."
+        }
+      },
+      "gallery": {
+        "title": "Gallery",
+        "content": {
+          "heading": "The LUXE Gallery",
+          "images": [
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "The LUXE Ambiance",
+              "category": "Ambiance"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Cocktails",
+              "category": "Drinks"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Food",
+              "category": "Food"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Evening View",
+              "category": "Ambiance"
+            }
+          ],
+          "categories": [
+            "Ambiance",
+            "Drinks",
+            "Food"
+          ]
+        }
+      },
+      "reservationCta": {
+        "title": "Reservation Cta",
+        "content": {
+          "heading": "Reserve Your Table",
+          "description": "Ensure your spot at the most exclusive rooftop destination in the city.",
+          "link": "/contact",
+          "buttonText": "Make a Reservation"
+        }
+      }
+    }
+  },
+  "meetings": {
+    "title": "Meetings",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/hero_hotel_1784569172973.png",
+          "alt": "Corporate Meetings & Conferences",
+          "heading": "Corporate Meetings & Conferences",
+          "description": "Elevate your business gatherings with our premium meeting spaces, designed for productivity, privacy, and seamless execution."
+        }
+      },
+      "boardroom": {
+        "title": "Boardroom",
+        "content": {
+          "image": "/images/hero_hotel_1784569172973.png",
+          "alt": "Boardroom",
+          "heading": "Executive Luxury for High-Stakes Decisions",
+          "heading2": "The Boardroom",
+          "icon": "group",
+          "text": "Capacity: 10 to 12 Guests",
+          "items": [
+            "Executive Seating",
+            "Large Meeting Table",
+            "Blackout Curtains",
+            "Private Washroom",
+            "Dedicated Refreshment Station",
+            "Coffee & Tea",
+            "Premium Snacks",
+            "Large Smart TV",
+            "Presentation System",
+            "High Speed WiFi"
+          ],
+          "icon2": "check",
+          "heading3": "Best Suited For:",
+          "items2": [
+            "Board Meetings",
+            "Strategy Sessions",
+            "Executive Meetings"
+          ]
+        }
+      },
+      "regentRoom": {
+        "title": "Regent Room",
+        "content": {
+          "image": "/images/hero_hotel_1784569172973.png",
+          "alt": "Regent Room",
+          "heading": "Regent Room",
+          "icon": "group",
+          "text": "Capacity: 5 to 6 Guests",
+          "items": [
+            "Natural Lighting",
+            "Comfortable Seating",
+            "Large Smart TV",
+            "High Speed WiFi"
+          ],
+          "icon2": "check",
+          "heading2": "Ideal For:",
+          "items2": [
+            "Interviews",
+            "Client Meetings",
+            "Brainstorming",
+            "Small Team Meetings"
+          ]
+        }
+      },
+      "corporateCateringSupport": {
+        "title": "Corporate Catering & Support",
+        "content": {
+          "heading": "Corporate Catering & Support",
+          "items": [
+            {
+              "title": "Coffee Breaks & High Tea",
+              "icon": "emoji_food_beverage"
+            },
+            {
+              "title": "Working Lunches",
+              "icon": "lunch_dining"
+            },
+            {
+              "title": "Technical Assistance",
+              "icon": "engineering"
+            },
+            {
+              "title": "Dedicated Event Support",
+              "icon": "support_agent"
+            }
+          ]
+        }
+      },
+      "cta": {
+        "title": "Cta",
+        "content": {
+          "heading": "Ready to host a flawless meeting?",
+          "description": "Contact our dedicated events team to start planning.",
+          "link": "tel:8889866686",
+          "icon": "phone",
+          "buttonText": "8889866686",
+          "text": "|",
+          "link2": "/contact",
+          "buttonText2": "Contact Us"
+        }
+      }
+    }
+  },
+  "banquet": {
+    "title": "Banquet",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/banquet_hall_1784569314141.png",
+          "alt": "The Ballroom Banquet Hall",
+          "heading": "Premium Banquet Hall",
+          "heading2": "The Ballroom",
+          "description": "Elegant 1,000+ sq ft banquet hall perfect for birthdays, private celebrations, social gatherings and intimate events."
+        }
+      },
+      "highlights": {
+        "title": "Highlights",
+        "content": {
+          "heading": "Grand Celebrations Start Here",
+          "items": [
+            {
+              "title": "Private Entrance",
+              "icon": "door_front"
+            },
+            {
+              "title": "VIP Experience",
+              "icon": "stars"
+            },
+            {
+              "title": "Premium Catering",
+              "icon": "restaurant_menu"
+            },
+            {
+              "title": "Custom Menus",
+              "icon": "menu_book"
+            },
+            {
+              "title": "Cocktail Service",
+              "icon": "local_bar"
+            },
+            {
+              "title": "Mocktail Service",
+              "icon": "local_drink"
+            },
+            {
+              "title": "Audio Visual Setup",
+              "icon": "settings_input_hdmi"
+            },
+            {
+              "title": "DJ Setup",
+              "icon": "speaker"
+            },
+            {
+              "title": "Flexible Seating",
+              "icon": "chair"
+            },
+            {
+              "title": "Party Layout",
+              "icon": "celebration"
+            },
+            {
+              "title": "Elegant Dining Layout",
+              "icon": "restaurant"
+            }
+          ]
+        }
+      },
+      "eventPhotosGallery": {
+        "title": "Event Photos Gallery",
+        "content": {
+          "heading": "Event Gallery",
+          "images": [
+            {
+              "src": "/images/banquet_hall_1784569314141.png",
+              "alt": "Banquet Hall Setup",
+              "category": "Setup"
+            },
+            {
+              "src": "/images/banquet_hall_1784569314141.png",
+              "alt": "Dining Layout",
+              "category": "Dining"
+            },
+            {
+              "src": "/images/banquet_hall_1784569314141.png",
+              "alt": "Stage Area",
+              "category": "Setup"
+            },
+            {
+              "src": "/images/banquet_hall_1784569314141.png",
+              "alt": "Party Decor",
+              "category": "Events"
+            }
+          ],
+          "categories": [
+            "Setup",
+            "Dining",
+            "Events"
+          ]
+        }
+      },
+      "bookingCta": {
+        "title": "Booking Cta",
+        "content": {
+          "icon": "celebration",
+          "heading": "Ready to host your next unforgettable event?",
+          "description": "Our dedicated events team is here to bring your vision to life.",
+          "link": "/contact",
+          "buttonText": "Request a Proposal",
+          "link2": "tel:8889866686",
+          "icon2": "phone",
+          "buttonText2": "Call Now"
+        }
+      }
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "sections": {
+      "gallery": {
+        "title": "Gallery",
+        "content": {
+          "heading": "Our Gallery",
+          "description": "Explore the luxurious spaces, exquisite dining, and grand event venues that make Tanora Hotel an unforgettable destination.",
+          "images": [
+            {
+              "src": "/images/hero_hotel_1784569172973.png",
+              "alt": "Hotel Exterior",
+              "category": "Hotel"
+            },
+            {
+              "src": "/images/hero_hotel_1784569172973.png",
+              "alt": "Lobby",
+              "category": "Hotel"
+            },
+            {
+              "src": "/images/standard_room_1784569189614.png",
+              "alt": "Standard Room",
+              "category": "Rooms"
+            },
+            {
+              "src": "/images/executive_suite_1784569211005.png",
+              "alt": "Executive Suite",
+              "category": "Rooms"
+            },
+            {
+              "src": "/images/restaurant_pavilion_1784569251819.png",
+              "alt": "The Pavilion",
+              "category": "Restaurant"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "The LUXE Rooftop",
+              "category": "Rooftop"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Private Dining",
+              "category": "Restaurant"
+            },
+            {
+              "src": "/images/hero_hotel_1784569172973.png",
+              "alt": "Boardroom",
+              "category": "Events"
+            },
+            {
+              "src": "/images/hero_hotel_1784569172973.png",
+              "alt": "Regent Room",
+              "category": "Events"
+            },
+            {
+              "src": "/images/banquet_hall_1784569314141.png",
+              "alt": "Banquet Hall",
+              "category": "Events"
+            },
+            {
+              "src": "/images/restaurant_pavilion_1784569251819.png",
+              "alt": "Gourmet Dish",
+              "category": "Food"
+            },
+            {
+              "src": "/images/restaurant_luxe_1784569279478.png",
+              "alt": "Cocktails",
+              "category": "Drinks"
+            },
+            {
+              "src": "/images/hero_hotel_1784569172973.png",
+              "alt": "Ambiance",
+              "category": "Ambiance"
+            }
+          ],
+          "categories": [
+            "Hotel",
+            "Rooms",
+            "Restaurant",
+            "Rooftop",
+            "Events",
+            "Food",
+            "Drinks",
+            "Ambiance"
+          ]
+        }
+      }
+    }
+  },
+  "offers": {
+    "title": "Offers",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/hero_hotel_1784569172973.png",
+          "alt": "Offers & Packages",
+          "heading": "Offers & Packages"
+        }
+      },
+      "directBookingBenefits": {
+        "title": "Direct Booking Benefits",
+        "content": {
+          "heading": "Direct Booking Benefits",
+          "description": "Always get the best rate when you book directly with us.",
+          "items": [
+            {
+              "title": "Best Price Guarantee",
+              "icon": "verified"
+            },
+            {
+              "title": "Free Upgrade (Subject to availability)",
+              "icon": "upgrade"
+            },
+            {
+              "title": "Late Check-out",
+              "icon": "schedule"
+            },
+            {
+              "title": "Welcome Drink",
+              "icon": "local_bar"
+            }
+          ]
+        }
+      },
+      "packagesGrid": {
+        "title": "Packages Grid",
+        "content": {
+          "packages": [
+            {
+              "title": "Seasonal Offers",
+              "icon": "ac_unit",
+              "desc": "Special discounts for summer and winter getaways."
+            },
+            {
+              "title": "Weekend Packages",
+              "icon": "weekend",
+              "desc": "Relax and rejuvenate with our 2-night weekend staycations."
+            },
+            {
+              "title": "Corporate Packages",
+              "icon": "business_center",
+              "desc": "Exclusive rates and meeting room access for business travelers."
+            },
+            {
+              "title": "Birthday Packages",
+              "icon": "cake",
+              "desc": "Celebrate your special day with cake, decorations, and a private dinner."
+            },
+            {
+              "title": "Anniversary Packages",
+              "icon": "favorite",
+              "desc": "Romantic room setups, wine, and couples dining."
+            },
+            {
+              "title": "Conference Packages",
+              "icon": "groups",
+              "desc": "Full-day catering and A/V support included with room bookings."
+            },
+            {
+              "title": "Banquet Packages",
+              "icon": "celebration",
+              "desc": "Customized catering and decor for large events."
+            },
+            {
+              "title": "VIP Offers",
+              "icon": "stars",
+              "desc": "Exclusive luxury experiences and private transfers."
+            }
+          ],
+          "link": "/contact",
+          "buttonText": "Inquire Now"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "sections": {
+      "heroBanner": {
+        "title": "Hero Banner",
+        "content": {
+          "image": "/images/hero_hotel_1784569172973.png",
+          "alt": "Contact Tanora Hotel",
+          "heading": "Get In Touch"
+        }
+      },
+      "contactDetails": {
+        "title": "Contact Details",
+        "content": {
+          "heading": "Contact Details",
+          "icon": "location_on",
+          "heading2": "Address",
+          "description": "Tanora Hotel",
+          "description2": "Heart of Indore",
+          "description3": "Madhya Pradesh, India",
+          "link": "https://maps.app.goo.gl/yQdyQVsYHpe96Njs9?g_st=iw",
+          "text": "Get Directions",
+          "icon2": "open_in_new",
+          "icon3": "phone",
+          "heading3": "Phone",
+          "link2": "tel:8889866686",
+          "buttonText": "8889866686",
+          "icon4": "mail",
+          "heading4": "Email",
+          "link3": "mailto:info@tanorahotels.com",
+          "buttonText2": "info@tanorahotels.com",
+          "mapUrl": "https://maps.google.com/maps?q=22.7645434,75.8993094&z=16&output=embed",
+          "title": "Tanora Hotel Location Map",
+          "link4": "https://maps.app.goo.gl/yQdyQVsYHpe96Njs9?g_st=iw",
+          "icon5": "map",
+          "text2": "Open in Google Maps",
+          "icon6": "open_in_new",
+          "heading5": "Send a Message",
+          "label": "Full Name",
+          "placeholder": "John Doe",
+          "label2": "Email Address",
+          "placeholder2": "john@example.com",
+          "label3": "Phone Number",
+          "placeholder3": "+91 8889866686",
+          "label4": "Message",
+          "placeholder4": "How can we help you?",
+          "buttonText3": "Send Message"
+        }
+      },
+      "quickCtas": {
+        "title": "Quick Ctas",
+        "content": {
+          "link": "tel:8889866686",
+          "icon": "phone",
+          "buttonText": "Call Now",
+          "link2": "https://reservations.hotel-spider.com/03w6a62fee16853",
+          "icon2": "event_seat",
+          "buttonText2": "Book Now"
+        }
+      }
+    }
+  }
+}
