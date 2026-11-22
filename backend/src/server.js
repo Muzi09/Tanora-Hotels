@@ -14,7 +14,7 @@ async function startServer() {
       console.log(`🚀 Tanora CMS Server running on port ${env.PORT}`);
       console.log(`📍 Environment: ${env.NODE_ENV}`);
       console.log(`🌐 Base API URL: http://localhost:${env.PORT}/api`);
-      console.log(`📁 Uploads URL:  http://localhost:${env.PORT}/uploads`);
+      console.log(`🖼️ Media URL:     http://localhost:${env.PORT}/api/media/:id/file`);
       console.log(`===============================================`);
     });
 

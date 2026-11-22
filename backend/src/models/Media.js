@@ -27,8 +27,12 @@ const MediaSchema = new mongoose.Schema(
     },
     storageProvider: {
       type: String,
-      default: 'local',
-      enum: ['local', 's3', 'cloudinary'],
+      default: 'mongodb',
+      enum: ['local', 'mongodb', 's3', 'cloudinary'],
+    },
+    data: {
+      type: Buffer,
+      select: false,
     },
     url: {
       type: String,
@@ -46,6 +50,12 @@ const MediaSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: {
+      transform(_doc, ret) {
+        delete ret.data;
+        return ret;
+      },
+    },
   }
 );
 

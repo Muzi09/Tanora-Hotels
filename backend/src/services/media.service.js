@@ -1,41 +1,36 @@
-import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { Media } from '../models/Media.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const uploadDir = path.resolve(__dirname, '../../uploads');
 
 export class MediaService {
   static async saveUploadedFile(file, adminUser, altText = '') {
-    const url = `/uploads/${file.filename}`;
+    const ext = path.extname(file.originalname).toLowerCase();
+    const sanitizedName = path
+      .basename(file.originalname, ext)
+      .replace(/[^a-zA-Z0-9_-]/g, '_')
+      .slice(0, 40);
+    const storedName = `${sanitizedName}_${Date.now()}_${Math.round(Math.random() * 1e9)}${ext}`;
 
     try {
-      const media = await Media.create({
+      const media = new Media({
         originalName: file.originalname,
-        storedName: file.filename,
+        storedName,
         mimeType: file.mimetype,
         size: file.size,
+        data: file.buffer,
         dimensions: {
           width: 0,
           height: 0,
         },
-        storageProvider: 'local',
-        url,
+        storageProvider: 'mongodb',
         altText: altText || path.parse(file.originalname).name.replace(/[_-]/g, ' '),
         uploadedBy: adminUser ? adminUser._id : undefined,
       });
 
+      media.url = `/api/media/${media._id}/file`;
+      await media.save();
+
       return media;
     } catch (err) {
-      // Clean up uploaded file if database save fails
-      const filePath = path.join(uploadDir, file.filename);
-      if (fs.existsSync(filePath)) {
-        try {
-          fs.unlinkSync(filePath);
-        } catch (_) {}
-      }
       console.error('[MediaService] Database error saving media:', err);
       throw new Error(`Failed to save media to database: ${err.message}`);
     }
@@ -69,6 +64,14 @@ export class MediaService {
     return Media.findById(id);
   }
 
+  static async getMediaFileById(id) {
+    return Media.findById(id).select('+data');
+  }
+
+  static async getMediaFileByStoredName(storedName) {
+    return Media.findOne({ storedName }).select('+data');
+  }
+
   static async updateMedia(id, { altText }) {
     return Media.findByIdAndUpdate(
       id,
@@ -81,16 +84,6 @@ export class MediaService {
     const media = await Media.findById(id);
     if (!media) {
       throw new Error('Media file not found');
-    }
-
-    // Delete local file if present
-    const filePath = path.join(uploadDir, media.storedName);
-    if (fs.existsSync(filePath)) {
-      try {
-        fs.unlinkSync(filePath);
-      } catch (err) {
-        console.warn(`[MediaService] Could not unlink ${filePath}:`, err.message);
-      }
     }
 
     await Media.findByIdAndDelete(id);

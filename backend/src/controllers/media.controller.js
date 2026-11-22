@@ -1,5 +1,44 @@
 import { MediaService } from '../services/media.service.js';
 
+function sendImageFile(res, media) {
+  if (!media?.data?.length) {
+    return res.status(404).json({ success: false, message: 'Image data not found' });
+  }
+
+  res.set({
+    'Content-Type': media.mimeType,
+    'Content-Length': media.data.length,
+    'Cache-Control': 'public, max-age=31536000, immutable',
+    'X-Content-Type-Options': 'nosniff',
+    'Content-Security-Policy': "default-src 'none'; sandbox",
+  });
+  return res.send(media.data);
+}
+
+export async function getMediaFile(req, res, next) {
+  try {
+    const media = await MediaService.getMediaFileById(req.params.id);
+    if (!media) {
+      return res.status(404).json({ success: false, message: 'Media not found' });
+    }
+    return sendImageFile(res, media);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function getLegacyMediaFile(req, res, next) {
+  try {
+    const media = await MediaService.getMediaFileByStoredName(req.params.storedName);
+    if (!media) {
+      return res.status(404).json({ success: false, message: 'Media not found' });
+    }
+    return sendImageFile(res, media);
+  } catch (error) {
+    next(error);
+  }
+}
+
 export async function uploadMedia(req, res, next) {
   try {
     if (!req.file) {

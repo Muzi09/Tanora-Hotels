@@ -1,12 +1,5 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
-const BACKEND_URL = 'http://localhost:5000/api';
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000/api';
 
 async function runTestSuite() {
   console.log('====================================================');
@@ -185,9 +178,6 @@ async function runTestSuite() {
     'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
     'base64'
   );
-  const tempFilePath = path.join(__dirname, 'test-upload.png');
-  fs.writeFileSync(tempFilePath, dummyPng);
-
   const formData = new FormData();
   const fileBlob = new Blob([dummyPng], { type: 'image/png' });
   formData.append('file', fileBlob, 'test-room-photo.png');
@@ -206,12 +196,21 @@ async function runTestSuite() {
 
   const mediaId = uploadJson.data?._id;
   if (mediaId) {
+    const imageRes = await fetch(new URL(uploadJson.data.url, BACKEND_URL));
+    const storedPng = Buffer.from(await imageRes.arrayBuffer());
+    assert(
+      imageRes.status === 200 && imageRes.headers.get('content-type') === 'image/png' && storedPng.equals(dummyPng),
+      'Public image URL serves the exact PNG bytes stored in MongoDB'
+    );
+
     // List media
     const listRes = await fetch(`${BACKEND_URL}/media`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const listJson = await listRes.json();
-    assert(listJson.data?.items?.some((m) => m._id === mediaId), 'Uploaded media is listed in Media Library');
+    const listedMedia = listJson.data?.items?.find((m) => m._id === mediaId);
+    assert(Boolean(listedMedia), 'Uploaded media is listed in Media Library');
+    assert(!Object.hasOwn(listedMedia || {}, 'data'), 'Media Library response omits image bytes');
 
     // Delete media
     const deleteRes = await fetch(`${BACKEND_URL}/media/${mediaId}`, {
@@ -219,10 +218,6 @@ async function runTestSuite() {
       headers: { Authorization: `Bearer ${token}` },
     });
     assert(deleteRes.status === 200, 'DELETE /api/media/:id successfully removes media');
-  }
-
-  if (fs.existsSync(tempFilePath)) {
-    fs.unlinkSync(tempFilePath);
   }
 
   // 8. GLOBAL SETTINGS API

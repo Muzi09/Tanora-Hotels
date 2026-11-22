@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   uploadMedia,
+  getMediaFile,
   getMedia,
   getMediaById,
   updateMedia,
@@ -11,7 +12,10 @@ import { upload } from '../middleware/upload.middleware.js';
 
 const router = express.Router();
 
-// All media endpoints require authentication
+// Published images are public so the website can render them without a token.
+router.get('/:id/file', getMediaFile);
+
+// Media management endpoints require authentication.
 router.use(requireAuth);
 
 router.post('/upload', upload.single('file'), uploadMedia);

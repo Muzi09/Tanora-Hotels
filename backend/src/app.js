@@ -2,8 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
 import { env } from './config/env.js';
 import { errorHandler } from './middleware/error.middleware.js';
@@ -11,10 +9,8 @@ import { errorHandler } from './middleware/error.middleware.js';
 import authRoutes from './routes/auth.routes.js';
 import contentRoutes from './routes/content.routes.js';
 import mediaRoutes from './routes/media.routes.js';
+import { getLegacyMediaFile } from './controllers/media.controller.js';
 import settingsRoutes from './routes/settings.routes.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -52,9 +48,8 @@ app.use(cookieParser(env.COOKIE_SECRET));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static uploads directory
-const uploadsPath = path.resolve(__dirname, '../uploads');
-app.use('/uploads', express.static(uploadsPath));
+// Keep old /uploads URLs working for media records whose bytes are in MongoDB.
+app.get('/uploads/:storedName', getLegacyMediaFile);
 
 // Health check
 app.get('/api/health', (_req, res) => {
