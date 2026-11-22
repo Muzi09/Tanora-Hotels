@@ -14,8 +14,9 @@ export default function AdminLoginModal() {
   const [attemptsLeft, setAttemptsLeft] = useState<number | null>(null);
   const [blockedUntil, setBlockedUntil] = useState<string | null>(null);
 
-  // Check initial rate-limit / IP block status on mount
+  // Check initial rate-limit / IP block status on mount (only if unauthenticated)
   useEffect(() => {
+    if (isCheckingSession || (token && adminUser)) return;
     let isMounted = true;
     getLoginRateLimitStatus()
       .then((status) => {
@@ -38,10 +39,19 @@ export default function AdminLoginModal() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isCheckingSession, token, adminUser]);
 
   // If already authenticated, do not show login modal
   if (token && adminUser) return null;
+
+  // While checking session on reload, keep hidden to avoid split-second flash
+  if (isCheckingSession) {
+    return (
+      <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+        <span>Sign In to Admin</span>
+      </div>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

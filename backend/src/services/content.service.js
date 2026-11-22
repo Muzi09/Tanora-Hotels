@@ -208,6 +208,7 @@ export class ContentService {
     }
 
     doc.draftContent = draftContent;
+    doc.markModified('draftContent');
     doc.isDraftModified = true;
     doc.draftVersion = (doc.draftVersion || doc.publishedVersion || 1) + 1;
 
@@ -260,6 +261,7 @@ export class ContentService {
       throw error;
     }
     doc.content = doc.draftContent;
+    doc.markModified('content');
     doc.publishedVersion = doc.draftVersion || doc.publishedVersion + 1;
     doc.isDraftModified = false;
     doc.lastPublishedAt = new Date();
@@ -281,6 +283,7 @@ export class ContentService {
     const published = [];
     for (const doc of modifiedDocs) {
       doc.content = doc.draftContent ?? doc.content;
+      doc.markModified('content');
       doc.publishedVersion = doc.draftVersion || doc.publishedVersion + 1;
       doc.isDraftModified = false;
       doc.lastPublishedAt = new Date();
@@ -317,6 +320,7 @@ export class ContentService {
     }
 
     doc.draftContent = doc.content;
+    doc.markModified('draftContent');
     doc.isDraftModified = false;
     doc.draftVersion = doc.publishedVersion;
     await doc.save();
@@ -374,6 +378,7 @@ export class ContentService {
 
     // Restore to draftContent and mark modified so admin can preview before publishing
     doc.draftContent = versionItem.content;
+    doc.markModified('draftContent');
     doc.isDraftModified = true;
     doc.draftVersion = (doc.draftVersion || 1) + 1;
 

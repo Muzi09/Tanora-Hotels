@@ -46,7 +46,7 @@ interface AdminContextType {
   openEditor: (sectionKey: string) => void;
   closeEditor: () => void;
   updateSectionPreview: (sectionKey: string, newContent: any) => void;
-  saveSection: (sectionKey: string) => Promise<boolean>;
+  saveSection: (sectionKey: string, customContent?: any) => Promise<boolean>;
   publishSection: (sectionKey: string) => Promise<boolean>;
   publishAll: () => Promise<boolean>;
   discardDraft: (sectionKey: string) => Promise<boolean>;
@@ -216,7 +216,7 @@ export function AdminProvider({
 
   // Save draft to backend
   const saveSection = useCallback(
-    async (sectionKey: string): Promise<boolean> => {
+    async (sectionKey: string, customContent?: any): Promise<boolean> => {
       if (!token) {
         showToast("Please log in to save changes", "error");
         return false;
@@ -225,6 +225,7 @@ export function AdminProvider({
       setIsSaving(true);
       try {
         if (sectionKey === "settings") {
+          const contentToSave = customContent !== undefined ? customContent : homeData.settings;
           const API_BASE =
             process.env.NEXT_PUBLIC_API_URL || "https://tanora-hotels.onrender.com/api";
           const res = await fetch(`${API_BASE}/settings`, {
@@ -233,12 +234,12 @@ export function AdminProvider({
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify(homeData.settings),
+            body: JSON.stringify(contentToSave),
           });
           if (!res.ok) throw new Error("Failed to save settings");
           showToast("Global settings saved successfully", "success");
         } else {
-          const sectionData = (homeData as any)[sectionKey]?.data;
+          const sectionData = customContent !== undefined ? customContent : (homeData as any)[sectionKey]?.data;
           await apiSaveSectionDraft(sectionKey, sectionData, token, pageSlug);
           showToast(
             `Section "${sectionKey}" draft saved. Click Publish to make live.`,

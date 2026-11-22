@@ -11,22 +11,34 @@ export class MediaService {
   static async saveUploadedFile(file, adminUser, altText = '') {
     const url = `/uploads/${file.filename}`;
 
-    const media = await Media.create({
-      originalName: file.originalname,
-      storedName: file.filename,
-      mimeType: file.mimetype,
-      size: file.size,
-      dimensions: {
-        width: 0,
-        height: 0,
-      },
-      storageProvider: 'local',
-      url,
-      altText: altText || path.parse(file.originalname).name.replace(/[_-]/g, ' '),
-      uploadedBy: adminUser ? adminUser._id : undefined,
-    });
+    try {
+      const media = await Media.create({
+        originalName: file.originalname,
+        storedName: file.filename,
+        mimeType: file.mimetype,
+        size: file.size,
+        dimensions: {
+          width: 0,
+          height: 0,
+        },
+        storageProvider: 'local',
+        url,
+        altText: altText || path.parse(file.originalname).name.replace(/[_-]/g, ' '),
+        uploadedBy: adminUser ? adminUser._id : undefined,
+      });
 
-    return media;
+      return media;
+    } catch (err) {
+      // Clean up uploaded file if database save fails
+      const filePath = path.join(uploadDir, file.filename);
+      if (fs.existsSync(filePath)) {
+        try {
+          fs.unlinkSync(filePath);
+        } catch (_) {}
+      }
+      console.error('[MediaService] Database error saving media:', err);
+      throw new Error(`Failed to save media to database: ${err.message}`);
+    }
   }
 
   static async listMedia({ page = 1, limit = 50, search = '' } = {}) {

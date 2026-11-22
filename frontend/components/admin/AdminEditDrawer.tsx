@@ -89,6 +89,14 @@ function AdminEditDrawerInner({
   const sectionMeta = (homeData as any)[activeEditSection];
   const isDraftModified = sectionMeta?.isDraftModified;
 
+  const handlePublish = async () => {
+    if (dirtySections.includes(activeEditSection) || !isDraftModified) {
+      const saved = await saveSection(activeEditSection, formData);
+      if (!saved) return;
+    }
+    await publishSection(activeEditSection);
+  };
+
   return (
     <>
     <button aria-label="Close editor backdrop" onClick={closeEditor} className="fixed inset-0 z-[65] bg-black/50" />
@@ -135,7 +143,7 @@ function AdminEditDrawerInner({
           <button
             type="button"
             disabled={isSaving || isPublishing}
-            onClick={() => saveSection(activeEditSection)}
+            onClick={() => saveSection(activeEditSection, formData)}
             className="px-4 py-1.5 rounded-lg bg-primary text-white hover:bg-primary/90 text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex items-center gap-1.5 cursor-pointer"
           >
             {isSaving ? (
@@ -148,8 +156,8 @@ function AdminEditDrawerInner({
 
           <button
             type="button"
-            disabled={isPublishing || isSaving || !isDraftModified || dirtySections.includes(activeEditSection)}
-            onClick={() => publishSection(activeEditSection)}
+            disabled={isPublishing || isSaving}
+            onClick={handlePublish}
             className="px-4 py-1.5 rounded-lg bg-[#dcae5d] text-primary hover:bg-[#c99f52] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50 flex items-center gap-1.5 shadow-sm cursor-pointer"
           >
             {isPublishing ? (

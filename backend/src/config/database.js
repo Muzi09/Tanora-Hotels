@@ -1,37 +1,18 @@
 import mongoose from 'mongoose';
 import { env } from './env.js';
 
-let mongodInstance = null;
-
 export async function connectDB() {
   mongoose.set('strictQuery', false);
 
+  console.log(`[Database] Connecting to MongoDB at: ${env.MONGODB_URI}`);
   try {
-    // Attempt standard connection to MONGODB_URI
-    console.log(`[Database] Attempting connection to MongoDB at: ${env.MONGODB_URI}`);
     await mongoose.connect(env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 3000,
+      serverSelectionTimeoutMS: 5000,
     });
-    console.log('[Database] Connected to external MongoDB successfully.');
+    console.log('[Database] Connected to MongoDB successfully.');
   } catch (err) {
-    console.warn(`[Database] Could not connect to external MongoDB: ${err.message}`);
-    console.log('[Database] Starting in-memory embedded MongoDB server...');
-
-    try {
-      const { MongoMemoryServer } = await import('mongodb-memory-server');
-      mongodInstance = await MongoMemoryServer.create({
-        instance: {
-          dbName: 'tanora_hotels',
-        },
-      });
-      const uri = mongodInstance.getUri();
-      console.log(`[Database] Embedded MongoDB server running at: ${uri}`);
-      await mongoose.connect(uri);
-      console.log('[Database] Connected to embedded MongoDB successfully.');
-    } catch (memErr) {
-      console.error('[Database] Failed to start embedded MongoDB:', memErr);
-      throw memErr;
-    }
+    console.error(`[Database] Failed to connect to MongoDB: ${err.message}`);
+    throw err;
   }
 
   mongoose.connection.on('error', (err) => {
@@ -45,7 +26,5 @@ export async function connectDB() {
 
 export async function disconnectDB() {
   await mongoose.disconnect();
-  if (mongodInstance) {
-    await mongodInstance.stop();
-  }
+  console.log('[Database] Disconnected from MongoDB.');
 }
